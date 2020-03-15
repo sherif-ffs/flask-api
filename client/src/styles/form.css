@@ -1,0 +1,23 @@
+.form {
+    border: 1px solid blue;
+    display: flex;
+    flex: .5;
+    flex-direction: column;
+    height: 350px;
+    padding: 20px;
+    margin-top: 15vh;
+    margin-right: 5vh;
+}
+.form-title {
+    font-family: 'Avenir', Helvetica, Arial;
+    color: #333333;
+    font-size: 26px;
+}
+input {
+    padding: 15px;
+    margin: 5px;
+}
+button {
+    padding: 15px;
+    margin: 5px;
+}
