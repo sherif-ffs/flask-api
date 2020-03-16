@@ -46,17 +46,26 @@ products_schema = ProductSchema(many=True)
 # Create a Product
 @app.route('/product', methods=['POST'])
 def add_product():
-    name = request.json['name']
-    description = request.json['description']
-    price = request.json['price']
-    qty = request.json['qty']
+    name = str(request.get_json('name')['name'])
+    description = str(request.get_json('description')['description'])
+    price = str(request.get_json('price')['price'])
+    qty = str(request.get_json('qty')['quantity'])
 
     new_product = Product(name, description, price, qty)
-
+    print('new_product: ', new_product)
     db.session.add(new_product)
     db.session.commit()
 
     return product_schema.jsonify(new_product)
+
+    # product_data = request.get_json()
+    # print('product_data: ', product_data)
+    # new_product = Product(name=product_data['name'], description=product_data['description'], price=product_data['price'], quantity=product_data['quantity'])
+
+    # db.session.add(new_product)
+    # db.session.commit()
+
+    # return 'Done', 201
 
 # Get all Products
 @app.route('/product', methods=['GET'])
