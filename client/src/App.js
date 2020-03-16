@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <Products products={products}></Products>
-      <Form></Form>
+      <Form onAddNewProduct={product => setProducts(currentProducts => [...currentProducts, product])}></Form>
     </div>
   );
 }
