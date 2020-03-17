@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_cors import CORS, cross_origin
 import os
+import sys
+
+print(sys.path)
 
 # Init app
 app = Flask(__name__)
@@ -50,7 +53,7 @@ def add_product():
     description = str(request.get_json('description')['description'])
     price = str(request.get_json('price')['price'])
     qty = str(request.get_json('qty')['quantity'])
-
+    print('qty: ', qty)
     new_product = Product(name, description, price, qty)
     print('new_product: ', new_product)
     db.session.add(new_product)
