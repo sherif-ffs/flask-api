@@ -46,7 +46,7 @@ export const Form = ({onAddNewProduct}) => {
 
                     if (response) {
                         console.log('response worked')
-                        onAddNewProduct(product)
+                        onAddNewProduct(e,product)
                     }
 
                 }}>submit</button>
